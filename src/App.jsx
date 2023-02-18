@@ -6,9 +6,9 @@ import Header from './components/Header';
 import ProtectedRoute from './components/ProtectedRoute';
 import Gifs from './pages/Gifs';
 import Login from './pages/Login';
+import Search from './pages/Search';
 import Stickers from './pages/Stickers';
 import Trending from './pages/Trending';
-import Search from './pages/Search';
 
 function App() {
   return (

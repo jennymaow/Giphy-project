@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
+
 import useAxios from '../hooks/useAxios';
 const Search = () => {
   const [keyword, setKeyword] = useState('trend');

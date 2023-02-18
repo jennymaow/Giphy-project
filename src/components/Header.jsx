@@ -23,7 +23,7 @@ const Header = () => {
             <NavLink to="/explore">Explore</NavLink>
           </li>
         )}
-  
+
         {user && (
           <li>
             <button onClick={() => logout()}>Logout</button>
