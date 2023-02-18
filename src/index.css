@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Average+Sans&display=swap');
+
+:root {
+  --color-background: #121212;
+  --color-primary: white;
+
+  --gap-small: 1rem;
+  --gap-medium: 1.5rem;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
+  font-family: 'Average Sans', sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-primary);
+}
+
+button {
+  cursor: pointer;
+}

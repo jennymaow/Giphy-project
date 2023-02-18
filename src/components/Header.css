@@ -1,0 +1,33 @@
+header ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 10vh;
+  padding: var(--gap-small);
+  gap: var(--gap-medium);
+}
+
+/* header .navlink {
+  color: white;
+}
+
+header .navlink:hover {
+  border-bottom: 6px solid #00e6cc;
+} */
+
+.active {
+  color: #00e6cc;
+}
+
+header button {
+  font-size: 0.9rem;
+  height: 30px;
+  width:80px;
+  padding: 0.5rem;
+  border-radius: 3px;
+  border: none;
+  display: flex;
+  background-color: #6157ff;
+  align-items: center;
+  justify-content: center;
+}
