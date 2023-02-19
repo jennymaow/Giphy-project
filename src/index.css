@@ -16,8 +16,13 @@
   font-family: 'Average Sans', sans-serif;
   background-color: var(--color-background);
   color: var(--color-primary);
+  scroll-behavior: smooth;
 }
 
+body {
+  width: 90vw;
+  margin: 0 auto;
+}
 button {
   cursor: pointer;
 }

@@ -1,0 +1,5 @@
+.grid-layout {
+  display: grid;
+  grid-template-rows: 10vh 1fr;
+  width: 90vw;
+}

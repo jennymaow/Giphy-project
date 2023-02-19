@@ -1,0 +1,30 @@
+.search {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  gap: var(--gap-small);
+}
+
+.search-result {
+  width: 85vw;
+}
+
+.search input {
+  background-color: var(--color-primary);
+  border-radius: 3px;
+  border: none;
+  height: 30px;
+  width: 85vw;
+  padding: 0.5rem;
+  color: black;
+  outline: none;
+}
+
+.trend-keyword {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: nowrap;
+}

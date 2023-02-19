@@ -4,44 +4,30 @@ import { Route, Routes } from 'react-router-dom';
 
 import Header from './components/Header';
 import ProtectedRoute from './components/ProtectedRoute';
-import Gifs from './pages/Gifs';
+import GridLayout from './Layout/GridLayout';
+import Home from './pages/Home';
 import Login from './pages/Login';
 import Search from './pages/Search';
-import Stickers from './pages/Stickers';
 import Trending from './pages/Trending';
-
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Routes>
-        <Route path="/" element={<Trending />} />
-        <Route path="/login" element={<Login />} />
-        <Route
-          path="explore"
-          element={
-            <ProtectedRoute>
-              <Search />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="stickers"
-          element={
-            <ProtectedRoute>
-              <Stickers />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="gifs"
-          element={
-            <ProtectedRoute>
-              <Gifs />
-            </ProtectedRoute>
-          }
-        />
-      </Routes>
+      <GridLayout>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/trending" element={<Trending />} />
+          <Route
+            path="explore"
+            element={
+              <ProtectedRoute>
+                <Search />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </GridLayout>
     </div>
   );
 }

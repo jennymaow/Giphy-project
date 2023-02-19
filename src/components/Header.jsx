@@ -9,13 +9,22 @@ const Header = () => {
 
   return (
     <header>
+      <img
+        src="https://res.cloudinary.com/dnb4ujbgr/image/upload/v1676810811/Pokemons%20icons/GIPHY_Transparent_180px_c2hnf6.png"
+        alt="Giphy logo"
+      />
       <ul>
         <li>
-          <NavLink to="/">Trending</NavLink>
+          <NavLink to="/">Home</NavLink>
         </li>
         {!user && (
           <li>
             <NavLink to="/login">Login</NavLink>
+          </li>
+        )}
+        {user && (
+          <li>
+            <NavLink to="/trending">Trending</NavLink>
           </li>
         )}
         {user && (
