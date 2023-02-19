@@ -17,7 +17,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/trending" element={<Trending />} />
+          <Route
+            path="/trending"
+            element={
+              <ProtectedRoute>
+                <Trending />
+              </ProtectedRoute>
+            }
+          />
           <Route
             path="explore"
             element={

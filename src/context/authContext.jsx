@@ -13,18 +13,23 @@ export const AuthContextProvider = ({ children }) => {
 
   const login = async (data) => {
     setUser(data);
+    window.localStorage.setItem('user', data);
+    window.localStorage.setItem('keyword', data);
     navigate('/', { replace: true });
   };
 
   //replace true borra todo y te pone una barra. Se asegura de que te lleva a la página principal, por si en la página hay muchas rutas secundarias no sabe a que barra se refiere.
   const logout = () => {
     setUser(null);
+    window.localStorage.removeItem('user');
+    window.localStorage.removeItem('keyword');
     navigate('/', { replace: true });
   };
 
   const value = useMemo(
     () => ({
       user,
+
       login,
       logout,
     }),

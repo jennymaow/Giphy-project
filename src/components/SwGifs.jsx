@@ -1,4 +1,4 @@
-import './TrendingGifs.css';
+import './SWGifs.css';
 
 import { useEffect, useState } from 'react';
 import { useRef } from 'react';
@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import useAxios from '../hooks/useAxios';
 import Spinner from './Spinner';
 
-const TrendingGifs = () => {
+const SWGifs = () => {
   const [tGifs, setTGifs] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const ref = useRef();
@@ -16,47 +16,54 @@ const TrendingGifs = () => {
   const scroll = (offset) => {
     ref.current.scrollLeft += offset;
   };
-  const getTrendingGifs = async () => {
+  const getSWGifs = async () => {
     const optionsRequest = {
       method: 'GET',
-      url: 'https://api.giphy.com/v1/gifs/trending',
+      url: 'https://api.giphy.com/v1/gifs/search',
       params: {
         api_key: 'vTPDaFwijpJgSZ3e5bSQ9z0Ll9NpjCpv',
-        limit: 25,
-        rating: 'r',
+        q: 'Star wars',
+        limit: 50,
+        offset: 0,
+        rating: 'g',
+        lang: 'en',
       },
     };
-    const trendingGifs = await useAxios(optionsRequest);
-    setTGifs(trendingGifs.data);
+    const SWGifs = await useAxios(optionsRequest);
+    setTGifs(SWGifs.data);
     setLoaded(true);
-    return trendingGifs;
+    return SWGifs;
   };
 
   useEffect(() => {
-    getTrendingGifs();
+    getSWGifs();
   });
 
   return (
-    <section className="home-trending">
-      <div className="home-trending-head">
+    <section className="home-sw">
+      <div className="home-sw-head">
         <div>
-          <img
-            src="https://res.cloudinary.com/dnb4ujbgr/image/upload/v1676822765/Giphy/svg_xml_base64_PHN2ZyB3aWR0aD0iMjUiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyNSAyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgeDE9IjUuNjE1JSIgeTE9Ijc3LjQ3MiUiIHgyPSIxMDAlIiB5Mj0iMjYuMTI_yoqclg.svg"
-            alt="trending icon"
-          />
-          <h1>Trending</h1>
+          <h1># Star Wars</h1>
         </div>
-        <button onClick={() => navigate('/trending')}>View All</button>
+
+        <button
+          onClick={() => {
+            navigate('/explore');
+            localStorage.setItem('keyword', 'Star wars');
+          }}
+        >
+          View All
+        </button>
       </div>
 
-      <div className="trending-gifs-container">
+      <div className="sw-gifs-container">
         <button className="prev" onClick={() => scroll(-300)}>
           <img
             src="https://res.cloudinary.com/dnb4ujbgr/image/upload/v1676822765/Giphy/svg_xml_base64_PHN2ZyB3aWR0aD0iMTVweCIgaGVpZ2h0PSIzMHB4IiB2aWV3Qm94PSIwIDAgMTUgMzAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBzdHJva2U9Im5vbmUiIGZpbGw9Im5vbmUiPjxnIHRyYW5zZm9ybT0idHJhbnN_afv3jd.svg"
             alt="prev icon"
           />
         </button>
-        <div className="trending-gifs" ref={ref}>
+        <div className="sw-gifs" ref={ref}>
           {loaded ? (
             tGifs.map((gif) => (
               <img
@@ -80,4 +87,4 @@ const TrendingGifs = () => {
   );
 };
 
-export default TrendingGifs;
+export default SWGifs;

@@ -3,6 +3,10 @@
 :root {
   --color-background: #121212;
   --color-primary: white;
+  --color-secundary: rgb(179, 178, 178);
+  --color-highlight: #00e6cc;
+  --color-button: #6157ff;
+  --color-button-hover: #8a82fd;
 
   --gap-small: 1rem;
   --gap-medium: 1.5rem;
@@ -14,7 +18,7 @@
   list-style-type: none;
   text-decoration: none;
   font-family: 'Average Sans', sans-serif;
-  background-color: var(--color-background);
+
   color: var(--color-primary);
   scroll-behavior: smooth;
 }
@@ -22,7 +26,9 @@
 body {
   width: 90vw;
   margin: 0 auto;
+  background-color: var(--color-background);
 }
 button {
   cursor: pointer;
+  background-color: transparent;
 }

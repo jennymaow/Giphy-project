@@ -49,7 +49,12 @@
   border-radius: 3px;
   border: none;
   display: flex;
-  background-color: #6157ff;
+  background-color: var(--color-button);
   align-items: center;
   justify-content: center;
+  transition: all 0.15s ease-in-out;
+}
+
+.Login button:hover {
+  background-color: var(--color-button-hover);
 }

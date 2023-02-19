@@ -23,7 +23,7 @@ const Header = () => {
           </li>
         )}
         {user && (
-          <li>
+          <li className="trending-link">
             <NavLink to="/trending">Trending</NavLink>
           </li>
         )}

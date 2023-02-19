@@ -1,0 +1,71 @@
+.home-sw {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--gap-small);
+  border: none;
+}
+
+.home-sw > .home-sw-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.home-sw > .home-sw-head div {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  gap: 0.5rem;
+}
+
+.home-sw > .home-sw-head button {
+  border: none;
+  color: var(--color-secundary);
+}
+.home-sw > .home-sw-head button:hover {
+  color: var(--color-primary);
+}
+
+.home-sw .sw-gifs-container {
+  display: flex;
+  align-items: center;
+}
+
+.home-sw .sw-gifs-container button {
+  border: none;
+}
+
+.home-sw .sw-gifs-container button img {
+  width: 20px;
+  border: none;
+  filter: brightness(100%);
+  background-color: transparent;
+
+  padding: 0.3rem;
+  margin: 0.3rem;
+}
+.home-sw .sw-gifs-container button img:hover {
+  filter: brightness(200%);
+}
+
+.home-sw .sw-gifs-container .prev {
+  transform: rotate(180deg);
+}
+
+.home-sw .sw-gifs {
+  display: flex;
+  align-items: center;
+  height: 150px;
+  width: 100%;
+  gap: 0.3rem;
+  overflow-x: scroll;
+}
+
+.home-sw .sw-gifs::-webkit-scrollbar {
+  width: 0;
+}
+
+.sw-gifs img {
+  height: 100%;
+  border-radius: 5px;
+}

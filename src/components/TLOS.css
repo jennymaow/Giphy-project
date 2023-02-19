@@ -1,0 +1,72 @@
+.home-TLOS {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--gap-small);
+  border: none;
+}
+
+.home-TLOS > .home-TLOS-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.home-TLOS > .home-TLOS-head div {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  gap: 0.5rem;
+}
+
+.home-TLOS > .home-TLOS-head button {
+  border: none;
+  color: var(--color-secundary);
+}
+
+.home-TLOS > .home-TLOS-head button:hover {
+  color: var(--color-primary);
+}
+
+.home-TLOS .TLOS-gifs-container {
+  display: flex;
+  align-items: center;
+}
+
+.home-TLOS .TLOS-gifs-container button {
+  border: none;
+}
+
+.home-TLOS .TLOS-gifs-container button img {
+  width: 20px;
+  border: none;
+  filter: brightness(100%);
+  background-color: transparent;
+
+  padding: 0.3rem;
+  margin: 0.3rem;
+}
+.home-TLOS .TLOS-gifs-container button img:hover {
+  filter: brightness(200%);
+}
+
+.home-TLOS .TLOS-gifs-container .prev {
+  transform: rotate(180deg);
+}
+
+.home-TLOS .TLOS-gifs {
+  display: flex;
+  align-items: center;
+  height: 150px;
+  width: 100%;
+  gap: 0.3rem;
+  overflow-x: scroll;
+}
+
+.home-TLOS .TLOS-gifs::-webkit-scrollbar {
+  width: 0;
+}
+
+.TLOS-gifs img {
+  height: 100%;
+  border-radius: 5px;
+}

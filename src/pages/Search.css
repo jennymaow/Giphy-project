@@ -7,24 +7,46 @@
   gap: var(--gap-small);
 }
 
-.search-result {
+.search > .search-result {
   width: 85vw;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
 }
 
-.search input {
+.search > .search-result .h1 {
+  text-align: center;
+}
+
+.search > .search-bar {
+  width: 85vw;
+  display: flex;
+  height: 5vh;
+  gap: 0.3rem;
+}
+.search > .search-bar > input {
   background-color: var(--color-primary);
   border-radius: 3px;
   border: none;
-  height: 30px;
-  width: 85vw;
+  height: 100%;
+  width: 100%;
   padding: 0.5rem;
   color: black;
   outline: none;
 }
 
-.trend-keyword {
+.search > .search-bar > button {
+  background-color: #6157ff;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  flex-wrap: nowrap;
+  justify-content: center;
+  height: 100%;
+  aspect-ratio: 1/1;
+  border: none;
+  border-radius: 3px;
+}
+
+.search > .search-bar > button img {
+  width: 15px;
 }

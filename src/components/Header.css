@@ -6,18 +6,18 @@ header {
 }
 
 header img {
-  height: 6vh;
+  height: 5vh;
 }
 header ul {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: var(--gap-small);
+  padding: var(--gap-small) 0;
   gap: var(--gap-medium);
 }
 
 .active {
-  color: #00e6cc;
+  color: var(--color-highlight);
 }
 
 header button {
@@ -28,7 +28,36 @@ header button {
   border-radius: 3px;
   border: none;
   display: flex;
-  background-color: #6157ff;
+  background-color: var(--color-button);
   align-items: center;
   justify-content: center;
+  transition: all 0.15s ease-in-out;
+}
+
+header button:hover {
+  background-color: var(--color-button-hover);
+}
+
+@media screen and (max-width: 600px) {
+  header img {
+    height: 3vh;
+  }
+
+  header {
+    height: 8vh;
+  }
+
+  header ul {
+    font-size: 12px;
+    gap: 0.8rem;
+  }
+
+  header .trending-link {
+    display: none;
+  }
+  header button {
+    font-size: 12px;
+    height: 25px;
+    width: 60px;
+  }
 }

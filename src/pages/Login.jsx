@@ -18,7 +18,6 @@ const Login = () => {
         <button
           onClick={() => {
             login(inputRef.current.value);
-            window.localStorage.setItem('user', inputRef.current.value);
           }}
         >
           Log in

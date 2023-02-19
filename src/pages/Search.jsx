@@ -4,12 +4,16 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import React, { useEffect, useState } from 'react';
+import { useRef } from 'react';
 
+import Spinner from '../components/Spinner';
 import useAxios from '../hooks/useAxios';
 export default function Search() {
-  const [keyword, setKeyword] = useState('trend');
   const [searchedGif, setSearchedGif] = useState([]);
+  const [loaded, setLoaded] = useState(false);
+  const ref = useRef(null);
   const getKeywordGif = async (keyword) => {
+    console.log('before', window.localStorage.getItem('keyword'));
     const optionsRequired = {
       method: 'GET',
       url: 'https://api.giphy.com/v1/gifs/search',
@@ -22,54 +26,67 @@ export default function Search() {
         lang: 'en',
       },
     };
+    console.log('after', window.localStorage.getItem('keyword'));
     const gifs = await useAxios(optionsRequired);
     setSearchedGif(gifs.data);
-    console.log(gifs);
+    setLoaded(true);
     return gifs;
   };
 
   useEffect(() => {
-    getKeywordGif(keyword);
-  }, [keyword]);
+    getKeywordGif(window.localStorage.getItem('keyword'));
+  }, []);
 
   return (
     <section className="search">
-      <input
-        type="text"
-        placeholder={keyword}
-        onChange={(ev) => setKeyword(ev.target.value)}
-      />
+      <div className="search-bar">
+        <input
+          type="text"
+          placeholder={window.localStorage.getItem('keyword')}
+          ref={ref}
+        />
+        <button
+          onClick={() => {
+            window.localStorage.setItem('keyword', ref.current.value);
+            getKeywordGif(ref.current.value);
+          }}
+        >
+          <img
+            src="https://res.cloudinary.com/dnb4ujbgr/image/upload/v1676822765/Giphy/search-icon_qc37sf.svg"
+            alt="search icon"
+          />
+        </button>
+      </div>
       <div className="search-result">
         <ImageList variant="masonry" cols={3} gap={8}>
-          {searchedGif.length !== 0 ? (
-            searchedGif.map((item) => (
-              <div key={JSON.stringify(item)}>
-                <ImageListItem>
-                  <img
-                    src={`${item.images.original.url}?w=248&fit=crop&auto=format`}
-                    srcSet={`${item.images.original.url}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                    alt={item.title}
-                    loading="lazy"
-                  />
-                  {item.title && (
-                    <ImageListItemBar
-                      className="item-bar"
-                      title={item.title}
-                      sx={{
-                        color: 'red',
-                      }}
+          {loaded ? (
+            searchedGif.length !== 0 ? (
+              searchedGif.map((item) => (
+                <div key={JSON.stringify(item)}>
+                  <ImageListItem>
+                    <img
+                      src={`${item.images.original.url}?w=248&fit=crop&auto=format`}
+                      srcSet={`${item.images.original.url}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                      alt={item.title}
+                      loading="lazy"
                     />
-                  )}
-                </ImageListItem>
-              </div>
-            ))
-          ) : (
-            <section className="trend-keyword">
+                    {item.title && (
+                      <ImageListItemBar
+                        className="item-bar"
+                        title={item.title}
+                        sx={{
+                          color: 'red',
+                        }}
+                      />
+                    )}
+                  </ImageListItem>
+                </div>
+              ))
+            ) : (
               <h1>No results</h1>
-              <button onClick={() => setKeyword('happy')}>Happy</button>
-              <button onClick={() => setKeyword('surprised')}>Surprised</button>
-              <button onClick={() => setKeyword('star wars')}>Star wars</button>
-            </section>
+            )
+          ) : (
+            <Spinner />
           )}
         </ImageList>
       </div>

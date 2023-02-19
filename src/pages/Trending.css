@@ -1,0 +1,14 @@
+.trending {
+  display: flex;
+  flex-direction: column;
+}
+
+.trending > .trending-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+@media screen and (max-width: 600px) {
+}
