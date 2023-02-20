@@ -70,3 +70,10 @@
   height: 100%;
   border-radius: 5px;
 }
+
+@media screen and (max-width: 600px){
+  .home-TLOS .TLOS-gifs-container button{
+    display: none
+    ;
+  }
+}
