@@ -23,7 +23,7 @@ const TLOSGifs = () => {
       params: {
         api_key: 'vTPDaFwijpJgSZ3e5bSQ9z0Ll9NpjCpv',
         q: 'The Last of us',
-        limit: 50,
+        limit: 25,
         offset: 0,
         rating: 'g',
         lang: 'en',
